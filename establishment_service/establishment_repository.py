@@ -6,7 +6,7 @@ from tornado import gen
 
 class EstablishmentRepository:
     def __init__(self):
-        self.client = MotorClient()
+        self.client = MotorClient("mongodb://food_standards:123456@10.0.0.101:27017/establishments")
 
     @gen.coroutine
     def list_establishments(self):

@@ -19,7 +19,7 @@ _start_time = datetime.datetime.now()
 
 
 def main():
-    file_name = "../data.json"
+    file_name = "./data/data.json"
 
     if not os.path.exists(file_name):
         raise Exception("The required data file isn't present. "
@@ -29,7 +29,7 @@ def main():
     # and the Web server.
 
     print("Starting import")
-    client = MongoClient("mongodb://localhost/establishments", j=True)
+    client = MongoClient("mongodb://food_standards:123456@10.0.0.101:27017/establishments", j=True)
     db = client.establishments
     batch_size = 100
     import_thread = threading.Thread(target=database_import,
